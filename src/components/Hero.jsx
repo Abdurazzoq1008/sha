@@ -66,16 +66,16 @@ export default function Hero() {
           >
             <a
               href="#shop"
-              className="group inline-flex items-center gap-3 rounded-full bg-forest dark:bg-emerald-600 px-8 py-4 text-sm font-semibold tracking-wide text-white shadow-lg shadow-forest/20 dark:shadow-emerald-900/30 transition-all duration-300 hover:bg-forest-dark dark:hover:bg-emerald-500 hover:shadow-xl hover:gap-4"
+              className="group inline-flex items-center gap-0 rounded-full bg-forest dark:bg-emerald-600 px-8 py-4 text-sm font-semibold tracking-wide text-white shadow-lg shadow-forest/20 dark:shadow-emerald-900/30 transition-all duration-300 hover:bg-forest-dark dark:hover:bg-emerald-500 hover:shadow-xl hover:gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest"
             >
               Kolleksiyani ko'rish
-              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" strokeWidth={2} />
+              <ArrowRight className="h-4 w-0 -translate-x-1 opacity-0 transition-all duration-300 group-hover:w-4 group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:w-4 group-focus-visible:translate-x-0 group-focus-visible:opacity-100" strokeWidth={2} />
             </a>
             <a
               href="https://www.instagram.com/samarqand.melfisflowers/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-charcoal/15 dark:border-white/20 bg-white/50 dark:bg-white/10 backdrop-blur-sm px-8 py-4 text-sm font-semibold tracking-wide text-charcoal dark:text-white transition-all duration-300 hover:bg-white dark:hover:bg-white/20 hover:border-charcoal/25"
+              className="instagram-cta inline-flex items-center gap-2 rounded-full border border-charcoal/15 dark:border-white/20 bg-white/50 dark:bg-white/10 backdrop-blur-sm px-8 py-4 text-sm font-semibold tracking-wide text-charcoal dark:text-white"
             >
               Instagram
             </a>

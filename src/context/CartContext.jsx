@@ -1,13 +1,19 @@
 import { createContext, useContext, useState, useCallback, useEffect } from 'react';
+import { products } from '../data/products';
 
 const CartContext = createContext(null);
 const CART_KEY = 'bloom-cart';
+const productsById = new Map(products.map((product) => [product.id, product]));
 
 function readCart() {
   try {
     const stored = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
     return Array.isArray(stored)
       ? stored.filter((item) => item && Number.isInteger(item.id) && Number.isInteger(item.quantity) && item.quantity > 0)
+        .map((item) => {
+          const currentProduct = productsById.get(item.id);
+          return currentProduct ? { ...currentProduct, quantity: item.quantity } : item;
+        })
       : [];
   } catch (error) {
     console.error('Unable to read BLOOM cart from localStorage.', error);
