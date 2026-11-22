@@ -81,6 +81,16 @@
   }
 }
 
+@keyframes brand-bloom {
+  0%, 100% { transform: rotate(-4deg) scale(1); }
+  50% { transform: rotate(7deg) scale(1.1); }
+}
+
+@keyframes brand-shimmer {
+  0%, 15% { background-position: 0% 50%; }
+  55%, 100% { background-position: 100% 50%; }
+}
+
 /* ── Base Styles ── */
 @layer base {
   html {
@@ -146,6 +156,49 @@
     background: rgba(20, 32, 26, 0.88);
     backdrop-filter: blur(20px) saturate(1.8);
     -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  }
+}
+
+/* Cursor-following highlight and subtle magnetic movement for buttons */
+button:not(:disabled) {
+  --button-cursor-x: 50%;
+  --button-cursor-y: 50%;
+  --button-magnetic-x: 0px;
+  --button-magnetic-y: 0px;
+}
+
+button:not(:disabled):hover {
+  translate: var(--button-magnetic-x) var(--button-magnetic-y);
+  background-image: radial-gradient(
+    circle at var(--button-cursor-x) var(--button-cursor-y),
+    rgba(255, 255, 255, 0.2),
+    transparent 70%
+  );
+}
+
+.brand-mark {
+  transform-origin: center;
+  animation: brand-bloom 4.5s ease-in-out infinite;
+}
+
+.brand-name {
+  color: transparent;
+  background-image: linear-gradient(110deg, #1e3329 0%, #c9a96e 48%, #1e3329 82%);
+  background-size: 220% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: brand-shimmer 7s ease-in-out infinite alternate;
+}
+
+html.dark .brand-name {
+  background-image: linear-gradient(110deg, #f3f0e9 0%, #76c9a2 48%, #e8d5a8 82%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-mark,
+  .brand-name {
+    animation: none;
   }
 }
 

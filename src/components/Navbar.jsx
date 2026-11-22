@@ -72,10 +72,10 @@ export default function Navbar() {
           {/* ── Logo ── */}
           <a href="#home" className="flex items-center gap-2 group">
             <Flower2
-              className="h-7 w-7 text-forest dark:text-emerald-400 transition-colors duration-300 group-hover:text-rose-dark"
+              className="brand-mark h-7 w-7 text-forest dark:text-emerald-400 transition-colors duration-300 group-hover:text-rose-dark"
               strokeWidth={1.5}
             />
-            <span className="font-display text-xl sm:text-2xl font-semibold tracking-wide text-forest-dark dark:text-white">
+            <span className="brand-name font-display text-xl sm:text-2xl font-semibold tracking-wide">
               Melfis Flowers
             </span>
           </a>
@@ -164,8 +164,8 @@ export default function Navbar() {
       >
         <div className="flex items-center justify-between px-6 py-5">
           <a href="#home" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-            <Flower2 className="h-7 w-7 text-forest dark:text-emerald-400" strokeWidth={1.5} />
-            <span className="font-display text-xl font-semibold tracking-wide text-forest-dark dark:text-white">
+            <Flower2 className="brand-mark h-7 w-7 text-forest dark:text-emerald-400" strokeWidth={1.5} />
+            <span className="brand-name font-display text-xl font-semibold tracking-wide">
               Melfis Flowers
             </span>
           </a>
