@@ -20,6 +20,33 @@ const navLinks = [
   { name: 'Aloqa', href: '#contact' },
 ];
 
+function BrandLogo({ className = '', onClick }) {
+  return (
+    <a
+      href="#home"
+      aria-label="Melfis Flowers — bosh sahifa"
+      onClick={onClick}
+      className={`brand-link group relative flex h-12 w-[170px] shrink-0 items-center rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest sm:w-[210px] ${className}`}
+    >
+      <span className="brand-default inline-flex items-center gap-2">
+        <Flower2
+          className="brand-mark h-7 w-7 text-forest transition-colors duration-300 group-hover:text-rose-dark dark:text-emerald-400"
+          strokeWidth={1.5}
+        />
+        <span className="brand-name font-display text-xl font-semibold tracking-wide sm:text-2xl">
+          Melfis Flowers
+        </span>
+      </span>
+      <img
+        src="/images/melfis-logo.png"
+        alt=""
+        aria-hidden="true"
+        className="brand-logo-image pointer-events-none absolute left-0 top-1/2 h-[72px] w-[150px] object-cover sm:w-[180px]"
+      />
+    </a>
+  );
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -69,13 +96,7 @@ export default function Navbar() {
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
           {/* ── Logo ── */}
-          <a href="#home" className="brand-link group flex items-center rounded-xl dark:bg-white dark:px-2 dark:py-1">
-            <img
-              src="/images/melfis-logo.png"
-              alt="Melfis Flower Shop"
-              className="brand-logo-image h-10 w-[138px] object-contain sm:h-11"
-            />
-          </a>
+          <BrandLogo />
 
           {/* ── Desktop Links ── */}
           <ul className="hidden lg:flex items-center gap-10">
@@ -160,13 +181,7 @@ export default function Navbar() {
         inert={!mobileOpen}
       >
         <div className="flex items-center justify-between px-6 py-5">
-          <a href="#home" className="brand-link flex items-center rounded-xl dark:bg-white dark:px-2 dark:py-1" onClick={() => setMobileOpen(false)}>
-            <img
-              src="/images/melfis-logo.png"
-              alt="Melfis Flower Shop"
-              className="brand-logo-image h-10 w-[132px] object-contain"
-            />
-          </a>
+          <BrandLogo onClick={() => setMobileOpen(false)} />
           <button
             aria-label="Yopish"
             className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-forest/5 dark:hover:bg-white/10 transition-colors"
