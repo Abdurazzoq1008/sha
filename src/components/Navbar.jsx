@@ -5,6 +5,7 @@ import {
   ShoppingBag,
   Menu,
   X,
+  Flower2,
   Sun,
   Moon,
 } from 'lucide-react';
