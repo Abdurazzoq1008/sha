@@ -19,11 +19,8 @@ function BannerCard({ image, alt, eyebrow, title, action }) {
       onPointerMove={handlePointerMove}
       onPointerLeave={() => setPointer({ x: 0, y: 0, active: false })}
       style={{
-        transform: pointer.active
-          ? `perspective(1200px) rotateX(${(0.5 - pointer.y) * 5}deg) rotateY(${(pointer.x - 0.5) * 5}deg) translateY(-5px)`
-          : 'perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0px)',
-        transition: pointer.active ? 'transform 120ms ease-out, box-shadow 500ms ease' : 'transform 500ms ease, box-shadow 500ms ease',
-        transformStyle: 'preserve-3d',
+        transform: pointer.active ? 'translateY(-4px)' : 'translateY(0)',
+        transition: 'transform 500ms ease, box-shadow 500ms ease',
       }}
     >
       <img
@@ -32,22 +29,30 @@ function BannerCard({ image, alt, eyebrow, title, action }) {
         className="absolute inset-0 h-full w-full object-cover"
         style={{
           transform: pointer.active
-            ? `scale(1.1) translate3d(${(0.5 - pointer.x) * 24}px, ${(0.5 - pointer.y) * 24}px, 0)`
-            : 'scale(1) translate3d(0, 0, 0)',
-          transition: pointer.active ? 'transform 180ms ease-out' : 'transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1)',
+            ? `scale(1.08) translate3d(${(0.5 - pointer.x) * 28}px, ${(0.5 - pointer.y) * 28}px, 0)`
+            : 'scale(1.02) translate3d(0, 0, 0)',
+          transition: pointer.active ? 'transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1)' : 'transform 1100ms ease',
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent transition-opacity duration-500 group-hover:opacity-90" />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         style={{
           background: pointer.active
-            ? `radial-gradient(circle at ${pointer.x * 100}% ${pointer.y * 100}%, rgba(255,255,255,0.24), transparent 45%)`
+            ? `radial-gradient(circle at ${pointer.x * 100}% ${pointer.y * 100}%, rgba(232,213,168,0.28), transparent 38%), linear-gradient(110deg, transparent ${pointer.x * 100 - 12}%, rgba(255,255,255,0.14) ${pointer.x * 100}%, transparent ${pointer.x * 100 + 12}%)`
             : 'transparent',
         }}
       />
-      <div className="relative" style={{ transform: pointer.active ? 'translateZ(32px)' : 'translateZ(0)' }}>
+      <div
+        className="relative z-10"
+        style={{
+          transform: pointer.active
+            ? `translate3d(${(pointer.x - 0.5) * 7}px, ${(pointer.y - 0.5) * 7}px, 0)`
+            : 'translate3d(0, 0, 0)',
+          transition: 'transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1)',
+        }}
+      >
         <span className="mb-4 inline-block rounded-full bg-white/20 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-widest text-white backdrop-blur-sm transition-colors duration-300 group-hover:bg-white/30">
           {eyebrow}
         </span>
