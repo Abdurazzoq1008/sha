@@ -5,7 +5,6 @@ import {
   ShoppingBag,
   Menu,
   X,
-  Flower2,
   Sun,
   Moon,
 } from 'lucide-react';
@@ -70,14 +69,12 @@ export default function Navbar() {
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
           {/* ── Logo ── */}
-          <a href="#home" className="flex items-center gap-2 group">
-            <Flower2
-              className="brand-mark h-7 w-7 text-forest dark:text-emerald-400 transition-colors duration-300 group-hover:text-rose-dark"
-              strokeWidth={1.5}
+          <a href="#home" className="brand-link group flex items-center rounded-xl dark:bg-white dark:px-2 dark:py-1">
+            <img
+              src="/images/melfis-logo.png"
+              alt="Melfis Flower Shop"
+              className="brand-logo-image h-10 w-[138px] object-contain sm:h-11"
             />
-            <span className="brand-name font-display text-xl sm:text-2xl font-semibold tracking-wide">
-              Melfis Flowers
-            </span>
           </a>
 
           {/* ── Desktop Links ── */}
@@ -163,11 +160,12 @@ export default function Navbar() {
         inert={!mobileOpen}
       >
         <div className="flex items-center justify-between px-6 py-5">
-          <a href="#home" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-            <Flower2 className="brand-mark h-7 w-7 text-forest dark:text-emerald-400" strokeWidth={1.5} />
-            <span className="brand-name font-display text-xl font-semibold tracking-wide">
-              Melfis Flowers
-            </span>
+          <a href="#home" className="brand-link flex items-center rounded-xl dark:bg-white dark:px-2 dark:py-1" onClick={() => setMobileOpen(false)}>
+            <img
+              src="/images/melfis-logo.png"
+              alt="Melfis Flower Shop"
+              className="brand-logo-image h-10 w-[132px] object-contain"
+            />
           </a>
           <button
             aria-label="Yopish"
